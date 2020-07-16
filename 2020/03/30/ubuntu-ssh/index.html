@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>殇花思密达</title>
+  <title>使用 SSH 连接 Ubuntu | 殇花思密达</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="殇花思密达">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+  <meta name="description" content="软件准备FinalShell 软件官网 http:&#x2F;&#x2F;www.hostbuf.com&#x2F; 因为我们之前安装系统的时候已经安装过SSH了，这里我们直接连接就好了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 SSH 连接 Ubuntu">
+<meta property="og:url" content="http://yoursite.com/2020/03/30/ubuntu-ssh/index.html">
 <meta property="og:site_name" content="殇花思密达">
+<meta property="og:description" content="软件准备FinalShell 软件官网 http:&#x2F;&#x2F;www.hostbuf.com&#x2F; 因为我们之前安装系统的时候已经安装过SSH了，这里我们直接连接就好了">
+<meta property="og:image" content="https://shanghua-blog-image.oss-cn-beijing.aliyuncs.com/SSH%E8%BF%9E%E6%8E%A5/%E6%96%B0%E5%BB%BA%E8%BF%9E%E6%8E%A5.PNG">
+<meta property="og:image" content="https://shanghua-blog-image.oss-cn-beijing.aliyuncs.com/SSH%E8%BF%9E%E6%8E%A5/%E7%BC%96%E8%BE%91%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E4%B8%BAROOT%E7%94%A8%E6%88%B7.PNG">
+<meta property="article:published_time" content="2020-03-30T12:27:22.000Z">
+<meta property="article:modified_time" content="2020-07-16T07:06:46.084Z">
 <meta property="article:author" content="殇 花">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shanghua-blog-image.oss-cn-beijing.aliyuncs.com/SSH%E8%BF%9E%E6%8E%A5/%E6%96%B0%E5%BB%BA%E8%BF%9E%E6%8E%A5.PNG">
   
     <link rel="alternative" href="/atom.xml" title="殇花思密达" type="application/atom+xml">
   
@@ -149,34 +156,82 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-java-函数式设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ubuntu-ssh" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E8%AE%BE%E8%AE%A1/">java 函数式设计</a>
+    <h1 class="article-title" itemprop="name">
+      使用 SSH 连接 Ubuntu
     </h1>
   
 
         
-        <a href="/2020/03/30/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
+        <a href="/2020/03/30/ubuntu-ssh/" class="archive-article-date">
+  	<time datetime="2020-03-30T12:27:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Functionallnterface"><a href="#Functionallnterface" class="headerlink" title="@Functionallnterface"></a>@Functionallnterface</h2><p>用于函数式接口类型声明的信息注解类型，这些接口的实例被 Lambda 表示式、方法引用或构造器引用创建。函数时接口只能有一个抽象方法，
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E8%AE%BE%E8%AE%A1/#more">more >></a>
-        
+        <h2 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h2><p>FinalShell 软件官网 <a href="http://www.hostbuf.com/" target="_blank" rel="noopener">http://www.hostbuf.com/</a></p>
+<p>因为我们之前安装系统的时候已经安装过SSH了，这里我们直接连接就好了</p>
+<a id="more"></a>
+<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>查看IP地址，在命令行输入 ifconfig</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">shanghua@ubuntu:~$ ifconfig</span><br><span class="line">ens33: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 192.168.1.103  netmask 255.255.255.0  broadcast 192.168.1.255</span><br><span class="line">        inet6 fe80::20c:29ff:fe32:75e2  prefixlen 64  scopeid 0x20&lt;link&gt;</span><br><span class="line">        ether 00:0c:29:32:75:e2  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 29766  bytes 43406394 (43.4 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 3187  bytes 257063 (257.0 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+
+<p>这里我的 IP 地址就是 192.168.1.103</p>
+<p>打开 FinalShell 并新建一个连接</p>
+<p><img src="https://shanghua-blog-image.oss-cn-beijing.aliyuncs.com/SSH%E8%BF%9E%E6%8E%A5/%E6%96%B0%E5%BB%BA%E8%BF%9E%E6%8E%A5.PNG" alt="新建连接"></p>
+<p>点击确定，这样我们就连接成功了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">连接成功</span><br><span class="line">To run a <span class="built_in">command</span> as administrator (user <span class="string">"root"</span>), use <span class="string">"sudo &lt;command&gt;"</span>.</span><br><span class="line">See <span class="string">"man sudo_root"</span> <span class="keyword">for</span> details.</span><br><span class="line"></span><br><span class="line">shanghua@ubuntu:~$</span><br></pre></td></tr></table></figure>
+
+<p>这里我们就获得了一个 shell 就可以直接操作虚拟机里的系统了</p>
+<h2 id="设置-ROOT-用户"><a href="#设置-ROOT-用户" class="headerlink" title="设置 ROOT 用户"></a>设置 ROOT 用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shanghua@ubuntu:~$ sudo passwd root</span><br><span class="line">[sudo] password for shanghua:</span><br><span class="line">Enter new UNIX password:</span><br><span class="line">Retype new UNIX password:</span><br><span class="line">passwd: password updated successfully</span><br></pre></td></tr></table></figure>
+
+<p>先输入当前用户密码，然后再输入两次 ROOT 账户密码，这样就设置成功了</p>
+<h2 id="切换到-ROOT-用户"><a href="#切换到-ROOT-用户" class="headerlink" title="切换到 ROOT 用户"></a>切换到 ROOT 用户</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">shanghua@ubuntu:~$ su</span><br><span class="line">Password:</span><br><span class="line">root@ubuntu:/home/shanghua#</span><br></pre></td></tr></table></figure>
+
+<p>我们输入 su 命令，然后再输入我们刚刚设置的 ROOT 密码就可以切换到 ROOT 用户了，我们可以从命令行看到，用户从 shanghua 变成了 root</p>
+<h2 id="配置-SSH-允许-ROOT-用户远程连接"><a href="#配置-SSH-允许-ROOT-用户远程连接" class="headerlink" title="配置 SSH 允许 ROOT 用户远程连接"></a>配置 SSH 允许 ROOT 用户远程连接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/shanghua<span class="comment"># vi /etc/ssh/sshd_config</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">PermitRootLogin prohibit-password</span></span><br><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure>
+
+<p>修改 SSH 配置文件，将 PermitRootLogin 后面的 prohibit-password 修改为 yes</p>
+<h2 id="重启-SSH-服务"><a href="#重启-SSH-服务" class="headerlink" title="重启 SSH 服务"></a>重启 SSH 服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/shanghua<span class="comment"># service ssh restart</span></span><br></pre></td></tr></table></figure>
+
+<p>重启后 ssh 配置文件才会生效哦</p>
+<h2 id="编辑-FinalShell-连接改为-root-用户"><a href="#编辑-FinalShell-连接改为-root-用户" class="headerlink" title="编辑 FinalShell 连接改为 root 用户"></a>编辑 FinalShell 连接改为 root 用户</h2><p><img src="https://shanghua-blog-image.oss-cn-beijing.aliyuncs.com/SSH%E8%BF%9E%E6%8E%A5/%E7%BC%96%E8%BE%91%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E4%B8%BAROOT%E7%94%A8%E6%88%B7.PNG" alt="新建连接"></p>
+<p>记得改密码哦，修改完成点击确定，然后打开这个连接</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">连接成功</span><br><span class="line">root@ubuntu:~#</span><br></pre></td></tr></table></figure>
+
+<p>这样就会发现连接上后就是 root 用户了</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -185,16 +240,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E8%AE%BE%E8%AE%A1/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/30/ubuntu-ssh/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/03/30/k8sAbout/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          K8s(kubernetes) 简介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/30/python%E6%8D%A2%E6%BA%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python 换源</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,615 +337,14 @@
 
 
 
-
-  
-    <article id="post-java-模块化设计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%BE%E8%AE%A1/">java 模块化设计</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%BE%E8%AE%A1/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>java -verbose:class</li>
-<li>Java Compact</li>
-</ul>
-<h2 id="模块路径"><a href="#模块路径" class="headerlink" title="模块路径"></a>模块路径</h2><p>模块路径可能是单个 artiface，或者是多个 artiface 的目录，存在于宿主机器上。</p>
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%BE%E8%AE%A1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E8%AE%BE%E8%AE%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-面向对象设计一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%B8%80/">java 面向对象设计一</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java-接口设计"><a href="#Java-接口设计" class="headerlink" title="Java 接口设计"></a>Java 接口设计</h2><h3 id="通用设计"><a href="#通用设计" class="headerlink" title="通用设计"></a>通用设计</h3>
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%B8%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%B8%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-进程-线程-协程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B/">进程-线程-协程</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>指计算机中已运行的程序。进程为曾经是分时系统的基本运作单位。在面向进程设计的系统中，进程是程序的基本执行实体；在面向线程设计的系统中，进程本身不是基本运行单位，而是线程的容器。程序本身只是指令、数据以及其组织形式的描述，进程才是程序的真正运行实例</p>
-        
-          <a class="article-more-a" href="/2020/03/30/%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%8D%8F%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-进程管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">Java 进程管理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="管理当前-JVM-进程"><a href="#管理当前-JVM-进程" class="headerlink" title="管理当前 JVM 进程"></a>管理当前 JVM 进程</h2><ul>
-<li>获取当前 JVM 进程 ID</li>
-<li>获取当前 JVM 进程启动时间
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-集合便利实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E9%9B%86%E5%90%88%E4%BE%BF%E5%88%A9%E5%AE%9E%E7%8E%B0/">java 集合便利实现</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java-%E9%9B%86%E5%90%88%E4%BE%BF%E5%88%A9%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="接口类型"><a href="#接口类型" class="headerlink" title="接口类型"></a>接口类型</h2><ul>
-<li><p>单例集合接口（Collections.singleton*）</p>
-</li>
-<li><p>空集合接口（Collections.empty*）</p>
-</li>
-<li><p>转换集合接口（Collections.*、Arrays.*）</p>
-</li>
-<li><p>列举集合接口（*.of(…)）</p>
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E9%9B%86%E5%90%88%E4%BE%BF%E5%88%A9%E5%AE%9E%E7%8E%B0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E9%9B%86%E5%90%88%E4%BE%BF%E5%88%A9%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-集合框架基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80/">java 集合框架基础</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><ul>
-<li>Collection interfaces（集合接口）
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-并发锁" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/18/java-%E5%B9%B6%E5%8F%91%E9%94%81/">Java 并发锁</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/18/java-%E5%B9%B6%E5%8F%91%E9%94%81/" class="archive-article-date">
-  	<time datetime="2019-09-18T03:57:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="并发锁"><a href="#并发锁" class="headerlink" title="并发锁"></a>并发锁</h2><ul>
-<li>重进入锁 - ReentrantLock</li>
-<li>重进入读写锁 - ReentrantReadWriteLock</li>
-<li>邮票锁 - StampedLock</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/18/java-%E5%B9%B6%E5%8F%91%E9%94%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-函数式基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/29/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E5%9F%BA%E7%A1%80/">java 函数式基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/29/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2019-08-29T03:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>Java 作为一门面向对象的静态语言，其封装性能够屏蔽数据结构的细</p>
-        
-          <a class="article-more-a" href="/2019/08/29/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/29/java-%E5%87%BD%E6%95%B0%E5%BC%8F%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-模块化基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%9F%BA%E7%A1%80/">java 模块化基础</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/22/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2019-08-22T04:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java-9-模块化"><a href="#Java-9-模块化" class="headerlink" title="Java 9 模块化"></a>Java 9 模块化</h2><h3 id="收益"><a href="#收益" class="headerlink" title="收益"></a>收益</h3><ul>
-<li>提升平台伸缩性</li>
-<li>提升平台完整性
-        
-          <a class="article-more-a" href="/2019/08/22/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/22/java-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -845,8 +367,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
