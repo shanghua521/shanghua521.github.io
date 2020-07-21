@@ -151,6 +151,230 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-maven-插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/20/maven-%E6%8F%92%E4%BB%B6/">maven-插件</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/20/maven-%E6%8F%92%E4%BB%B6/" class="archive-article-date">
+  	<time datetime="2020-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="maven-命令"><a href="#maven-命令" class="headerlink" title="maven 命令"></a>maven 命令</h2><ul>
+<li>mvn dependency:tree 可查看插件的依赖关系</li>
+<li>mvn archetype:generate 使用 maven 生成项目</li>
+<li>mvn help:effective-pom</li>
+</ul>
+<h2 id="maven-插件绑定"><a href="#maven-插件绑定" class="headerlink" title="maven 插件绑定"></a>maven 插件绑定</h2><ul>
+<li>生命周期的阶段可以绑定具体的插件及目标</li>
+<li>不同配置下同一阶段可以对应多个插件和目标</li>
+<li>maven 绑定插件的目录在 <code>MAVEN_HOME\lib\maven-core.jar\META-INF\plexus\default-bindings.xml</code></li>
+<li>maven 插件使用示例</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span>  <span class="comment">&lt;!-- 在执行 package后 将依赖复制到 $&#123;project.build.directory&#125;/alternateLocation 目录下--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span> <span class="comment">&lt;!-- 指定 goal 执行位置--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span> <span class="comment">&lt;!-- 指定配置文件--&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$&#123;project.build.directory&#125;/alternateLocation<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">overWriteReleases</span>&gt;</span>false<span class="tag">&lt;/<span class="name">overWriteReleases</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">overWriteSnapshots</span>&gt;</span>false<span class="tag">&lt;/<span class="name">overWriteSnapshots</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">overWriteIfNewer</span>&gt;</span>true<span class="tag">&lt;/<span class="name">overWriteIfNewer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>插件使用第二种方法 mvn groupId:artifactId:version:goal -D{参数名}</li>
+</ul>
+<h2 id="插件开发流程"><a href="#插件开发流程" class="headerlink" title="插件开发流程"></a>插件开发流程</h2><ul>
+<li>创建 maven 插件项目</li>
+<li>设定 packaging 为 maven-plugin</li>
+<li>添加插件依赖</li>
+<li>编写插件实现逻辑</li>
+<li>打包构建插件</li>
+</ul>
+<p>插件 pom 配置</p>
+<ul>
+<li>创建 maven 项目</li>
+<li>定义<code>&lt;packaging&gt;maven-plugin&lt;/packaging&gt;</code></li>
+<li>引入 <code>maven-plugin-api</code> <code>maven-plugin-annotations</code> 依赖</li>
+<li>插件方法类继承 <code>org.apache.maven.plugin.AbstractMojo</code></li>
+<li>实现 execute 方法</li>
+<li>可在全局变量上方加上 <code>org.apache.maven.plugins.annotations.Parameter</code> 注解,获取 maven 参数</li>
+</ul>
+<h2 id="maven-nexus-私服"><a href="#maven-nexus-私服" class="headerlink" title="maven nexus 私服"></a>maven nexus 私服</h2><ul>
+<li>搭建完成后可通过添加 <code>repositories</code> 制定 maven 服务器</li>
+<li>也可通过修改 maven setting.xml 中的 mirrors 全局指定服务器</li>
+<li>如需要 deploy jar 包到私服,需要在 pom.xml 下的 distributionManagement 下制定私服地址,并在 setting.xml 文件下添加 server 节点添加用户获取权限,并且 server 下的 id 需要与 distributionManagement 下的 id 对应</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/20/maven-%E6%8F%92%E4%BB%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-maven-入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/20/maven-%E5%85%A5%E9%97%A8/">maven-入门</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/20/maven-%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2020-07-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="maven-使用简介"><a href="#maven-使用简介" class="headerlink" title="maven 使用简介"></a>maven 使用简介</h2><ul>
+<li>maven 使用,在项目目录创建 pom.xml 文件,格式是<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0</span></span></span><br><span class="line"><span class="tag"><span class="string">                      http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shanghua-maven<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>maven 使用一种约定大于配置的模式,所以项目必须严格按照maven的约定进行开发</li>
+<li>maven 目录结构 src/main/java 内放如 java 源代码  src/main/resource 资源目录  src/test   pom.xml maven 文件</li>
+</ul>
+<h2 id="maven-常用命令"><a href="#maven-常用命令" class="headerlink" title="maven 常用命令"></a>maven 常用命令</h2><ul>
+<li>mvn clean 清楚打包内容</li>
+<li>mvn compile 编译项目</li>
+</ul>
+<h2 id="maven-测试"><a href="#maven-测试" class="headerlink" title="maven 测试"></a>maven 测试</h2><ul>
+<li>测试文件必须放入到 src/test/java,类名以Test 开头,方法名以 test 开头</li>
+<li>执行 mvn test 即可 执行所以 test 开头方法</li>
+<li>编译好的 test 文件 在 target/test-classes 下</li>
+<li>测试结果在 target/surefire-reports 下</li>
+<li>使用 junit 进行测试,在 pom.xml 内加入</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>加入后必须在需要执行的方法上加上 @Test 注解才会运行</li>
+</ul>
+<h2 id="maven-仓库"><a href="#maven-仓库" class="headerlink" title="maven 仓库"></a>maven 仓库</h2><ul>
+<li>本地仓库 可通过修改本地 maven 配置文件 settings.xml <code>&lt;localRepository&gt;</code> 修改仓库目录</li>
+<li>远程仓库可通过添加 mirror 节点添加.</li>
+</ul>
+<h2 id="maven-项目依赖"><a href="#maven-项目依赖" class="headerlink" title="maven 项目依赖"></a>maven 项目依赖</h2><ul>
+<li>依赖一个框架的时候,会同时依赖此项目的所以依赖</li>
+<li>依赖优先原则 下方的依赖会覆盖上方的依赖</li>
+<li>相同路径下的,配置在前优先</li>
+<li>依赖范围 <code>&lt;scope&gt;</code> 配置在 <code>&lt;dependency&gt;</code> 下限制依赖范围<ul>
+<li>compile: 默认,编译范围,编译和打包都会依赖</li>
+<li>provided:提供范围,编译时依赖,但不会打包进去,如 server-api.jar</li>
+<li>runtime: 运行时范围,打包时依赖,编译不会,如 mysql-connector.jar</li>
+<li>test:    测试范围,运行测试用例依赖,如 junit.jar, test jar 包只有 src/test 内的文件才能引用</li>
+<li>system:  表示由系统中的 CLASSPATH 指定,编译时依赖,不会打包进去,配合 <code>&lt;systemPath&gt;</code> 一起使用,如 java.home 下的 tool.jar</li>
+</ul>
+</li>
+</ul>
+<h2 id="maven-依赖管理"><a href="#maven-依赖管理" class="headerlink" title="maven 依赖管理"></a>maven 依赖管理</h2><ul>
+<li>父类内可声明 <code>&lt;dependencyManagement&gt;</code> 内部可写 <code>&lt;dependencies&gt;</code></li>
+<li>子类依赖父类后,并不会直接依赖父类 <code>&lt;dependencyManagement&gt;</code> 内声明的内容,只有声明后才会依赖,依赖可省略版本号</li>
+</ul>
+<h2 id="maven-默认属性"><a href="#maven-默认属性" class="headerlink" title="maven 默认属性"></a>maven 默认属性</h2><ul>
+<li><code>${basedir}</code> 项目根目录</li>
+<li><code>${version}</code> 项目版本</li>
+<li><code>${project.basedir}</code> 同 <code>${basedir}</code></li>
+<li><code>${project.version}</code> 同 <code>${version}</code></li>
+<li><code>${project.build.directory}</code> 构建目录,缺省为 target</li>
+<li><code>${project.build.sourcceEncoding}</code> 表示主源码的编码格式</li>
+<li><code>${project.build.sourceDirectory}</code> 表示主源码路径</li>
+<li><code>${project.build.finalName}</code> 表示输出文件名称</li>
+<li><code>${project.build.outputDirectory}</code> 构建过程输出目录,缺省 target/classes</li>
+<li>默认属性可在 resource 目录下配置文件 以及 pom.xml 内使用, 属性还可以通过 执行 mvn 命令是加入 -D 参数添加 </li>
+</ul>
+<h3 id="项目生命周期"><a href="#项目生命周期" class="headerlink" title="项目生命周期"></a>项目生命周期</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[预编译] --&gt;B[编译] --&gt; C[编译测试类] --&gt; D[构建] --&gt; G[jar 包构建] --&gt; F[部署]</span><br><span class="line">D --&gt; H[war 包构建] --&gt; F[部署]</span><br></pre></td></tr></table></figure>
+
+<h2 id="maven-生命周期"><a href="#maven-生命周期" class="headerlink" title="maven 生命周期"></a>maven 生命周期</h2><ul>
+<li>clean : 清理生命周期,用于清理项目</li>
+<li>default:默认生命周期,用于编译,打包,测试,部署等</li>
+<li>site:   站点文档生成,用于构建站点文档</li>
+<li>当执行下面生命周期的目录时,会将上方的生命周期走一边</li>
+<li>maven 生命周期命令大部分是由插件完成的,例如 test 就是由 maven-surefire-plugin</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/20/maven-%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-git-入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -656,140 +880,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/30/python%E6%8D%A2%E6%BA%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java-算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java-%E7%AE%97%E6%B3%95/">java - 算法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java-%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:27:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
-<li>计算复杂度：最佳、最坏以及平均复杂度
-        
-          <a class="article-more-a" href="/2020/03/30/java-%E7%AE%97%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java-%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java 面向对象设计二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%BA%8C/">java 面向对象设计二</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%BA%8C/" class="archive-article-date">
-  	<time datetime="2020-03-30T12:27:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Java-泛型设计"><a href="#Java-泛型设计" class="headerlink" title="Java 泛型设计"></a>Java 泛型设计</h2><h3 id="泛型使用场景"><a href="#泛型使用场景" class="headerlink" title="泛型使用场景"></a>泛型使用场景</h3><ul>
-<li>编译时强类型转换</li>
-<li>避免类型强转</li>
-<li>实现通用算法
-        
-          <a class="article-more-a" href="/2020/03/30/java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%BA%8C/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/java%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E4%BA%8C/">展开全文 >></a>
         </p>
       
 
