@@ -172,43 +172,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="maven-命令"><a href="#maven-命令" class="headerlink" title="maven 命令"></a>maven 命令</h2><ul>
-<li>mvn dependency:tree 可查看插件的依赖关系</li>
-<li>mvn archetype:generate 使用 maven 生成项目</li>
-<li>mvn help:effective-pom</li>
-</ul>
-<h2 id="maven-插件绑定"><a href="#maven-插件绑定" class="headerlink" title="maven 插件绑定"></a>maven 插件绑定</h2><ul>
-<li>生命周期的阶段可以绑定具体的插件及目标</li>
-<li>不同配置下同一阶段可以对应多个插件和目标</li>
-<li>maven 绑定插件的目录在 <code>MAVEN_HOME\lib\maven-core.jar\META-INF\plexus\default-bindings.xml</code></li>
-<li>maven 插件使用示例</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">plugin</span>&gt;</span>  <span class="comment">&lt;!-- 在执行 package后 将依赖复制到 $&#123;project.build.directory&#125;/alternateLocation 目录下--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span> <span class="comment">&lt;!-- 指定 goal 执行位置--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span> <span class="comment">&lt;!-- 指定配置文件--&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$&#123;project.build.directory&#125;/alternateLocation<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">overWriteReleases</span>&gt;</span>false<span class="tag">&lt;/<span class="name">overWriteReleases</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">overWriteSnapshots</span>&gt;</span>false<span class="tag">&lt;/<span class="name">overWriteSnapshots</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">overWriteIfNewer</span>&gt;</span>true<span class="tag">&lt;/<span class="name">overWriteIfNewer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>插件使用第二种方法 mvn groupId:artifactId:version:goal -D{参数名}</li>
-</ul>
-<h2 id="插件开发流程"><a href="#插件开发流程" class="headerlink" title="插件开发流程"></a>插件开发流程</h2><ul>
-<li>创建 maven 插件项目</li>
-<li>设定 packaging 为 maven-plugin</li>
-<li>添加插件依赖</li>
-<li>编写插件实现逻辑</li>
-<li>打包构建插件</li>
-</ul>
-<p>插件 pom 配置</p>
-<ul>
-<li>创建 maven 项目</li>
-<li>定义<code>&lt;packaging&gt;maven-plugin&lt;/packaging&gt;</code></li>
-<li>引入 <code>maven-plugin-api</code> <code>maven-plugin-annotations</code> 依赖</li>
-<li>插件方法类继承 <code>org.apache.maven.plugin.AbstractMojo</code></li>
-<li>实现 execute 方法</li>
-<li>可在全局变量上方加上 <code>org.apache.maven.plugins.annotations.Parameter</code> 注解,获取 maven 参数</li>
-</ul>
-<h2 id="maven-nexus-私服"><a href="#maven-nexus-私服" class="headerlink" title="maven nexus 私服"></a>maven nexus 私服</h2><ul>
-<li>搭建完成后可通过添加 <code>repositories</code> 制定 maven 服务器</li>
-<li>也可通过修改 maven setting.xml 中的 mirrors 全局指定服务器</li>
-<li>如需要 deploy jar 包到私服,需要在 pom.xml 下的 distributionManagement 下制定私服地址,并在 setting.xml 文件下添加 server 节点添加用户获取权限,并且 server 下的 id 需要与 distributionManagement 下的 id 对应</li>
-</ul>
-
+<li>mvn dependency:tree 可查看插件的依赖关系
+        
+          <a class="article-more-a" href="/2020/07/20/maven-%E6%8F%92%E4%BB%B6/#more">more >></a>
+        
       
 
       
