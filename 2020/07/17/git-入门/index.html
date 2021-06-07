@@ -14,8 +14,9 @@
 <meta property="og:url" content="http://yoursite.com/2020/07/17/git-%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="殇花思密达">
 <meta property="og:description" content="git 存储文件时候会将一个文件存储到一个数据库中">
-<meta property="article:published_time" content="2020-07-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-19T14:59:44.795Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-07-17T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-07T14:46:00.291Z">
 <meta property="article:author" content="殇 花">
 <meta name="twitter:card" content="summary">
   
@@ -35,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -49,7 +50,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">殇 花</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 
@@ -107,7 +108,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">殇 花</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
@@ -166,7 +167,7 @@
 
         
         <a href="/2020/07/17/git-%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2020-07-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
+  	<time datetime="2020-07-17T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
 </a>
         
       </header>
@@ -175,6 +176,7 @@
       
         <p>git 存储文件时候会将一个文件存储到一个数据库中</p>
 <a id="more"></a>
+
 <h2 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h2><ul>
 <li>git init ./目录名 初始化，初始化后会创建一个 .git 文件夹 元数据存储在 objects 中</li>
 <li>git add 将文件存储到暂存取<ul>
@@ -209,39 +211,40 @@
 </ul>
 <h2 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h2><ul>
 <li>git tag 查看当前 tag</li>
-<li>git tag tag名 创建 tag</li>
+<li>git tag tag 名 创建 tag</li>
 </ul>
-<h1 id="git-日志管理"><a href="#git-日志管理" class="headerlink" title="git 日志管理"></a>git 日志管理</h1><ul>
+<h2 id="git-日志管理"><a href="#git-日志管理" class="headerlink" title="git 日志管理"></a>git 日志管理</h2><ul>
 <li>git log 查看日志<ul>
 <li>–oneline 简单查看</li>
-<li>–graph 图形网络 </li>
+<li>–graph 图形网络</li>
 </ul>
 </li>
 <li>git log 分支名 查看某个分支的日志</li>
 <li>git log dev..master 查看多少个 master 没有提交到 dev 内</li>
 </ul>
-<h1 id="git-底层原理"><a href="#git-底层原理" class="headerlink" title="git 底层原理"></a>git 底层原理</h1><ul>
+<h2 id="git-底层原理"><a href="#git-底层原理" class="headerlink" title="git 底层原理"></a>git 底层原理</h2><ul>
 <li>git 存储对象(hashMap)</li>
 <li>find .git/objects/ -type f 查找所有 git 对象</li>
-<li>git hash-object -w <code>filename</code>  存储一个文件，并返回 hash，相当与 git add</li>
-<li>git cat-file -p hash  通过 hash 查看文件内容，我们并不知道文件内容属于哪个文件</li>
+<li>git hash-object -w <code>filename</code> 存储一个文件，并返回 hash，相当与 git add</li>
+<li>git cat-file -p hash 通过 hash 查看文件内容，我们并不知道文件内容属于哪个文件</li>
 <li>git cat-file -p master^{tree} 查看一个提交的文件的信息，包含文件名</li>
 </ul>
-<p>git commit 提交会包含一个 commit 对象，对象包含一个文件对象，包含文件名以及对应的 key<br>commit 对象 还包含一个 src 树对象 书对象包含 层级目录对象，直至目录中的文件，文件包含文件名以及key</p>
+<p>git commit 提交会包含一个 commit 对象，对象包含一个文件对象，包含文件名以及对应的 key<br>commit 对象 还包含一个 src 树对象 书对象包含 层级目录对象，直至目录中的文件，文件包含文件名以及 key</p>
 <p>通过 git log 可查看 commit 对象包含的 key<br>git cat-file -p key 可查看 commit 包含的内容<br>内容包含一个 tree 对象以及一个树对象<br>一个新 commit 产生的时候 改变的文件会将 上级的 key 改变 直到 commit key</p>
 <h2 id="git-创建中央仓库"><a href="#git-创建中央仓库" class="headerlink" title="git 创建中央仓库"></a>git 创建中央仓库</h2><ul>
 <li>git init –bare shanghua.git 创建裸项目，只要能访问这个目录就能进行开发，甚至是共享文件夹</li>
 <li>git clone root@ip:项目目录 通过这条命令可访问上一条命令在远程仓库创建的项目，通过 ssh 协议搭建 中央仓库</li>
-<li>通过 nginx 搭建 http 中央仓库 http(dump) 协议<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">  listen  80;</span><br><span class="line">  server_name git.shanghua.com;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /data/git-repository; # 仓库地址</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-重命名钩子<br>mv hooks/post-update.sample hooks/post-update</li>
+<li>通过 nginx 搭建 http 中央仓库 http(dump) 协议</li>
 </ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">  listen  80;</span><br><span class="line">  server_name git.shanghua.com;</span><br><span class="line">  location / &#123;</span><br><span class="line">    root /data/git-repository; # 仓库地址</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重命名钩子<br>mv hooks/post-update.sample hooks/post-update</p>
 <p>本地克隆</p>
 <p>git clone <a href="http://git.shanghua.com/shanghua.git" target="_blank" rel="noopener">http://git.shanghua.com/shanghua.git</a></p>
 <ul>
 <li>通过 git 协议搭建远程仓库 git 协议</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup git daemon --reuseaddr --base-path&#x3D;&#39;项目目录&#39; &#39;项目目录&#39;</span><br><span class="line">默认端口是 9418</span><br><span class="line">git clone git:&#x2F;&#x2F;ip:9418&#x2F;shanghua.git shanghua</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup git daemon --reuseaddr --base-path=<span class="string">'项目目录'</span> <span class="string">'项目目录'</span></span><br><span class="line">默认端口是 9418</span><br><span class="line">git <span class="built_in">clone</span> git://ip:9418/shanghua.git shanghua</span><br></pre></td></tr></table></figure>
 
 <h2 id="git-服务器搭建"><a href="#git-服务器搭建" class="headerlink" title="git 服务器搭建"></a>git 服务器搭建</h2><h3 id="git-gogs-服务器"><a href="#git-gogs-服务器" class="headerlink" title="git gogs 服务器"></a>git gogs 服务器</h3><ul>
 <li>gogs 官网 <code>https://gogs.io/</code> 下载安装包</li>
@@ -404,7 +407,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 殇 花
+    		&copy; 2021 殇 花
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
