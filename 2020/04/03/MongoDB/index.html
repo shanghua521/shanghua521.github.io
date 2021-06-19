@@ -14,16 +14,17 @@
   />
   <meta name="baidu-site-verification" content="code-KlzhgZnVhv" />
 
-   <meta name="description" content="安装 MongoDB 进入到 https:&#x2F;&#x2F;www.mongodb.com&#x2F;download-center&#x2F;community 即可选择符合你操作系统的安装包  按照安装包指示的流程安装即可  安装完成后将安装后的 bin 目录加入到系统 path 环境变量中">
+   <meta name="description" content="安装 MongoDB 进入到 https:&#x2F;&#x2F;www.mongodb.com&#x2F;download-center&#x2F;community 即可选择符合你操作系统的安装包 按照安装包指示的流程安装即可 安装完成后将安装后的 bin 目录加入到系统 path 环境变量中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB 的安装和使用">
 <meta property="og:url" content="https://shanghua521.github.io/2020/04/03/MongoDB/index.html">
 <meta property="og:site_name" content="殇花思密达">
-<meta property="og:description" content="安装 MongoDB 进入到 https:&#x2F;&#x2F;www.mongodb.com&#x2F;download-center&#x2F;community 即可选择符合你操作系统的安装包  按照安装包指示的流程安装即可  安装完成后将安装后的 bin 目录加入到系统 path 环境变量中">
+<meta property="og:description" content="安装 MongoDB 进入到 https:&#x2F;&#x2F;www.mongodb.com&#x2F;download-center&#x2F;community 即可选择符合你操作系统的安装包 按照安装包指示的流程安装即可 安装完成后将安装后的 bin 目录加入到系统 path 环境变量中">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-04-03T07:44:15.000Z">
-<meta property="article:modified_time" content="2020-07-16T07:25:47.583Z">
+<meta property="article:published_time" content="2020-04-03T15:44:15.000Z">
+<meta property="article:modified_time" content="2021-06-19T03:33:20.782Z">
 <meta property="article:author" content="殇 花">
+<meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
   
   <link
@@ -204,7 +205,7 @@
   
   
 <a href="/2020/04/03/MongoDB/" class="archive-article-date">
-        <time datetime="2020-04-03T07:44:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+        <time datetime="2020-04-03T15:44:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
 </a>
 
   
@@ -217,7 +218,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">666字</span>
+      <span class="post-count">758字</span>
     </span>
   </span>
 
@@ -238,94 +239,92 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="安装-MongoDB"><a href="#安装-MongoDB" class="headerlink" title="安装 MongoDB"></a>安装 MongoDB</h2><ul>
-<li><p>进入到 <a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">https://www.mongodb.com/download-center/community</a> 即可选择符合你操作系统的安装包</p>
+<li>进入到 <a target="_blank" rel="noopener" href="https://www.mongodb.com/download-center/community">https://www.mongodb.com/download-center/community</a> 即可选择符合你操作系统的安装包</li>
+<li>按照安装包指示的流程安装即可</li>
+<li>安装完成后将安装后的 <code>bin</code> 目录加入到系统 <code>path</code> 环境变量中<span id="more"></span>
+
 </li>
-<li><p>按照安装包指示的流程安装即可</p>
-</li>
-<li><p>安装完成后将安装后的 <code>bin</code> 目录加入到系统 <code>path</code> 环境变量中</p>
-<a id="more"></a>
-<h2 id="使用-MongoDB"><a href="#使用-MongoDB" class="headerlink" title="使用 MongoDB"></a>使用 MongoDB</h2></li>
-<li><p>创建目录</p>
-<ul>
+</ul>
+<h2 id="使用-MongoDB"><a href="#使用-MongoDB" class="headerlink" title="使用 MongoDB"></a>使用 MongoDB</h2><ul>
+<li>创建目录<ul>
 <li>打开命令提示符</li>
 <li>创建存放数据的目录 <code>md d:\data</code></li>
 <li>启动服务 <code>mongod ‐‐dbpath=d:\data</code></li>
 <li>连接 <code>mongo 192.168.184.134</code></li>
 </ul>
 </li>
-<li><p>常用命令</p>
-<ul>
+<li>常用命令<ul>
 <li>创建数据库 <code>use 数据库名</code> 数据库不存在则会自动创建<ul>
 <li><code>use spit</code></li>
 </ul>
 </li>
 <li>插入数据<ul>
 <li><code>db.数据库名.insert(数据);</code></li>
-<li><code>db.spit.insert({content:&quot;aaa&quot;,userid:&quot;1011&quot;,nickname:&quot;小雅&quot;,visits:NumberInt(902)});</code></li>
+<li><code>db.spit.insert(&#123;content:&quot;aaa&quot;,userid:&quot;1011&quot;,nickname:&quot;小雅&quot;,visits:NumberInt(902)&#125;);</code></li>
 </ul>
 </li>
 <li>查询数据<ul>
 <li><code>db.集合名称.find();</code></li>
 <li><code>db.spit.find();</code></li>
 <li>可以发现，每个数据库文档都会自动创建一个 <code>_id</code> 字段，相当于数据库的主键，我们可以插入支持的类型值替换<ul>
-<li><code>db.spit.insert({_id:&quot;1&quot;,content:&quot;aaa&quot;,userid:&quot;1012&quot;,nickname:&quot;小明&quot;,visits:NumberInt(2020)});</code></li>
+<li><code>db.spit.insert(&#123;_id:&quot;1&quot;,content:&quot;aaa&quot;,userid:&quot;1012&quot;,nickname:&quot;小明&quot;,visits:NumberInt(2020)&#125;);</code></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>条件查询<ul>
-<li><code>db.spit.find({userid:&#39;1011&#39;})</code></li>
-<li>查询一个 <code>db.spit.findOne({userid:&#39;1013&#39;})</code></li>
+<li><code>db.spit.find(&#123;userid:&#39;1011&#39;&#125;)</code></li>
+<li>查询一个 <code>db.spit.findOne(&#123;userid:&#39;1013&#39;&#125;)</code></li>
 <li>指定条数 <code>db.spit.find().limit(3)</code></li>
 </ul>
 </li>
 <li>修改数据<ul>
 <li><code>db.集合名称.update(条件,修改后的数据)</code></li>
-<li>修改 _id 为 1 的记录 <code>db.spit.update({_id:&quot;1&quot;},{visits:NumberInt(1000)})</code><ul>
+<li>修改 _id 为 1 的记录 <code>db.spit.update(&#123;_id:&quot;1&quot;&#125;,&#123;visits:NumberInt(1000)&#125;)</code><ul>
 <li>修改后除了 visits 字段其他字段都不见了，我们可以使用 <code>$set</code> 解决</li>
-<li><code>db.spit.update({_id:&quot;2&quot;},{$set:{visits:NumberInt(2000)}})</code></li>
+<li><code>db.spit.update(&#123;_id:&quot;2&quot;&#125;,&#123;$set:&#123;visits:NumberInt(2000)&#125;&#125;)</code></li>
 </ul>
 </li>
 </ul>
 </li>
 <li>删除数据<ul>
-<li><code>db.集合名称.remove(条件)</code>  入过没条件则全部删除 <code>慎用！</code></li>
-<li><code>db.集合名称.remove({visits:1000})</code> 删除 <code>visits</code> 为 100 的值</li>
+<li><code>db.集合名称.remove(条件)</code> 入过没条件则全部删除 <code>慎用！</code></li>
+<li><code>db.集合名称.remove(&#123;visits:1000&#125;)</code> 删除 <code>visits</code> 为 100 的值</li>
 </ul>
 </li>
 <li>统计条数<ul>
 <li><code>db.spit.count()</code></li>
-<li><code>db.spit.count({userid:&quot;1012&quot;})</code> 统计 <code>userid</code> 为 <code>1012</code> 的数量\</li>
+<li><code>db.spit.count(&#123;userid:&quot;1012&quot;&#125;)</code> 统计 <code>userid</code> 为 <code>1012</code> 的数量\</li>
 </ul>
 </li>
 <li>模糊查询<ul>
 <li>/模糊查询字符串/</li>
-<li><code>db.spit.find({content:/流量/})</code></li>
-<li><code>db.spit.find({content:/^加班/})</code></li>
+<li><code>db.spit.find(&#123;content:/流量/&#125;)</code></li>
+<li><code>db.spit.find(&#123;content:/^加班/&#125;)</code></li>
 </ul>
 </li>
 <li>大于 小于 不等于<ul>
-<li><code>db.集合名称.find({ &quot;field&quot; : { $gt: value }})</code> // 大于: field &gt; value</li>
-<li><code>db.集合名称.find({ &quot;field&quot; : { $lt: value }})</code> // 小于: field &lt; value</li>
-<li><code>db.集合名称.find({ &quot;field&quot; : { $gte: value }})</code> // 大于等于: field &gt;= value</li>
-<li><code>db.集合名称.find({ &quot;field&quot; : { $lte: value }})</code> // 小于等于: field &lt;= value</li>
-<li><code>db.集合名称.find({ &quot;field&quot; : { $ne: value }})</code> // 不等于: field != value</li>
+<li><code>db.集合名称.find(&#123; &quot;field&quot; : &#123; $gt: value &#125;&#125;)</code> //  大于: field &gt; value</li>
+<li><code>db.集合名称.find(&#123; &quot;field&quot; : &#123; $lt: value &#125;&#125;)</code> //  小于: field &lt; value</li>
+<li><code>db.集合名称.find(&#123; &quot;field&quot; : &#123; $gte: value &#125;&#125;)</code> //  大于等于: field &gt;= value</li>
+<li><code>db.集合名称.find(&#123; &quot;field&quot; : &#123; $lte: value &#125;&#125;)</code> //  小于等于: field &lt;= value</li>
+<li><code>db.集合名称.find(&#123; &quot;field&quot; : &#123; $ne: value &#125;&#125;)</code> //  不等于: field != value</li>
 </ul>
 </li>
 <li>包含与不包含<ul>
-<li><code>db.spit.find({userid:{$in:[&quot;1013&quot;,&quot;1014&quot;]}})</code> 查询 useid 字段包含 1013 和 1014 的文档</li>
-<li><code>db.spit.find({userid:{$nin:[&quot;1013&quot;,&quot;1014&quot;]}})</code> 查询 useid 字段不包含 1013 和 1014 的文档</li>
+<li><code>db.spit.find(&#123;userid:&#123;$in:[&quot;1013&quot;,&quot;1014&quot;]&#125;&#125;)</code> 查询 useid 字段包含 1013 和 1014 的文档</li>
+<li><code>db.spit.find(&#123;userid:&#123;$nin:[&quot;1013&quot;,&quot;1014&quot;]&#125;&#125;)</code> 查询 useid 字段不包含 1013 和 1014 的文档</li>
 </ul>
 </li>
 <li>条件连接<ul>
-<li><code>$and:[ {  },{  },{ } ]</code> 相当于 SQL 中的 AND</li>
-<li><code>db.spit.find({$and:[ {visits:{$gte:1000}} ,{visits:{$lt:2000} }]})</code> 查询 visits 大于 1000 并且小于 2000 的文档</li>
-<li><code>$or:[ {  },{  },{   } ]</code> 相当于 SQL 中的 OR</li>
-<li><code>db.spit.find({$or:[ {userid:{$gte:&quot;1013&quot;}} ,{visits:{$lt:2000} }]})</code> 查询 userid 等于 1013 并且 visits 小于 2000 的文档</li>
+<li><code>$and:[ &#123; &#125;,&#123; &#125;,&#123; &#125; ]</code> 相当于 SQL 中的 AND</li>
+<li><code>db.spit.find(&#123;$and:[ &#123;visits:&#123;$gte:1000&#125;&#125; ,&#123;visits:&#123;$lt:2000&#125; &#125;]&#125;)</code> 查询 visits 大于 1000 并且小于 2000 的文档</li>
+<li><code>$or:[ &#123; &#125;,&#123; &#125;,&#123; &#125; ]</code> 相当于 SQL 中的 OR</li>
+<li><code>db.spit.find(&#123;$or:[ &#123;userid:&#123;$gte:&quot;1013&quot;&#125;&#125; ,&#123;visits:&#123;$lt:2000&#125; &#125;]&#125;)</code> 查询 userid 等于 1013 并且 visits 小于 2000 的文档</li>
 </ul>
 </li>
 <li>列值增长<ul>
-<li><code>db.spit.update({_id:&quot;2&quot;},{$inc:{visits:NumberInt(1)}})</code></li>
+<li><code>db.spit.update(&#123;_id:&quot;2&quot;&#125;,&#123;$inc:&#123;visits:NumberInt(1)&#125;&#125;)</code></li>
 </ul>
 </li>
 </ul>
@@ -362,6 +361,17 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">MongoDB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -437,7 +447,7 @@
     </a>
   
   
-    <a href="/2020/03/30/k8sAbout/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/03/31/k8sAbout/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">K8s(kubernetes) 简介</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -586,6 +596,66 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">计网</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">elasticsearch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">IDEA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">k8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MongoDB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
