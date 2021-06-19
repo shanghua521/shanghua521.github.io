@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
 <meta property="article:published_time" content="2021-06-19T11:23:11.000Z">
-<meta property="article:modified_time" content="2021-06-19T12:32:57.118Z">
+<meta property="article:modified_time" content="2021-06-19T13:07:50.460Z">
 <meta property="article:author" content="殇 花">
 <meta property="article:tag" content="计网">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-06-19 12:32:57'
+  postUpdate: '2021-06-19 13:07:50'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -140,7 +140,7 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://q1.qlogo.cn/g?b=qq&amp;s=100&amp;nk=2621197736" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">殇花思密达</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络入门-TCP/UDP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-19T11:23:11.000Z" title="发表于 2021-06-19 11:23:11">2021-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-19T12:32:57.118Z" title="更新于 2021-06-19 12:32:57">2021-06-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络入门-TCP/UDP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="为什么-TCP-握手三次，挥手却四次"><a href="#为什么-TCP-握手三次，挥手却四次" class="headerlink" title="为什么 TCP 握手三次，挥手却四次"></a>为什么 TCP 握手三次，挥手却四次</h2><span id="more"></span>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://q1.qlogo.cn/g?b=qq&amp;s=100&amp;nk=2621197736" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">殇花思密达</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络入门-TCP/UDP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-19T11:23:11.000Z" title="发表于 2021-06-19 11:23:11">2021-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-06-19T13:07:50.460Z" title="更新于 2021-06-19 13:07:50">2021-06-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络入门-TCP/UDP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="为什么-TCP-握手三次，挥手却四次"><a href="#为什么-TCP-握手三次，挥手却四次" class="headerlink" title="为什么 TCP 握手三次，挥手却四次"></a>为什么 TCP 握手三次，挥手却四次</h2><span id="more"></span>
 
 <p>TCP 传输层协议，提供给 Host-To-Host 数据的可靠性传输，支持全双工，是一个连接导向的协议<br>这里主要涉及到，主机到主机、连接、会话、双工/单工及可靠性</p>
 <h3 id="主机到主机（Host-To-Host）"><a href="#主机到主机（Host-To-Host）" class="headerlink" title="主机到主机（Host-To-Host）"></a>主机到主机（Host-To-Host）</h3><p>提供的是 Host-To-Host 传输，一台主机通过 TCP 发送数据到另一台主机<br>可以是电脑-手机-平板<br>TCP 协议往上上 应用到应用 (Application-To-Application) 的协议<br>微信的聊天协议想要工作，就需要一个主机到主机的工具<br>互联网协议群（TCP/IP 协议群）</p>
@@ -188,15 +188,14 @@ A[应用层] --&gt; B[传输层] --&gt; C[网络层] --&gt; D[数据链路层] -
 </ul>
 <p>接收方接受到数据后，都需要给发送方一个 ACK（Acknowledgement） 响应，如果不响应，发送方会以为需要重发请求<br>保持连接的可靠性约束，TCP 协议要保证每一条发出的数据必须给返回</p>
 <h4 id="建立连接的过程（三次握手）"><a href="#建立连接的过程（三次握手）" class="headerlink" title="建立连接的过程（三次握手）"></a>建立连接的过程（三次握手）</h4><div class="mermaid">sequenceDiagram
-客户端-&gt;服务端:1.客户端发送消息给服务端（SYN） [一次握手]
+客户端-&gt;&gt;服务端:1.客户端发送消息给服务端（SYN） [一次握手]
 note over 服务端: 2. 服务端准备好进行连接
 note right of 服务端: [服务端的准备，不算握手]
-服务端-&gt;客户端: 3. 服务端针对客户端的 SYN 给一个 ACK [三四是同时发生的，算一次握手，第二次握手]
-服务端-&gt;客户端: 4. 服务端发送一个 SYN 给客户端 [三四可以合并成一个 SYN-RCVD 作为一条响应]
+服务端-&gt;&gt;客户端: 3. 服务端针对客户端的 SYN 给一个 ACK [三四是同时发生的，算一次握手，第二次握手]
+服务端-&gt;&gt;客户端: 4. 服务端发送一个 SYN 给客户端 [三四可以合并成一个 SYN-RCVD 作为一条响应]
 note over 客户端: 5. 客户端准备好进行连接
 note left of 客户端: 客户端准备 不算握手
-
-客户端-&gt;服务端: 6.客户端针对 SYN 给服务端一个 ACK [第三次握手]</div>
+客户端-&gt;&gt;服务端: 6.客户端针对 SYN 给服务端一个 ACK [第三次握手]</div>
 
 <p>为 TCP 协议增加协议头，在协议头中取对个位（bit），其中 SYN，ACK，PSH 都占有一个位</p>
 <h4 id="断开连接的过程（四次挥手）"><a href="#断开连接的过程（四次挥手）" class="headerlink" title="断开连接的过程（四次挥手）"></a>断开连接的过程（四次挥手）</h4><ul>
@@ -205,11 +204,11 @@ note left of 客户端: 客户端准备 不算握手
 <li>不能像握手一样马上穿回 FIN 回去，因为断开连接要处理的问题比较多，比如说<br>客服务的还有发送出去的消息没有得到 ACK；也可能自己有资源要释放，因此不能将两条消息合并<br>。所以客户端经过等待确认可以关闭连接了，再发生一条 FIN 给客户端</li>
 </ul>
 <div class="mermaid">sequenceDiagram
-客户端-&gt;服务端: FIN 请求断开连接
-服务端-&gt;客户端: ACK 响应 客户端 FIN
+客户端-&gt;&gt;服务端: FIN 请求断开连接
+服务端-&gt;&gt;客户端: ACK 响应 客户端 FIN
 note over 服务端: 服务端处理完事情
-服务端-&gt;客户端: FIN 请求断开连接
-客户端-&gt;服务端: ACK 响应 服务端 FIN</div>
+服务端-&gt;&gt;客户端: FIN 请求断开连接
+客户端-&gt;&gt;服务端: ACK 响应 服务端 FIN</div>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li>TCP 提供连接（Connection），让双法的传输更加的稳定、安全</li>
