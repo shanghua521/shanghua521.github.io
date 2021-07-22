@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Win,Mac,Unix,Linux | 殇花</title><meta name="keywords" content="计操"><meta name="author" content="殇 花"><meta name="copyright" content="殇 花"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Win,Mac,Unix,Linux在我的印象中 Windows 才是最容易被攻击的操作系统，没想到 2020 年美国 NIST 的报告中， Debian 竟然是过去 20 年中漏洞最多的操作系统。Debain 以 3067 个漏洞稳居第一，第二名是 Android，第三名是 Linux Kernel。那么为什么 Debian 漏洞数会排在第一位呢？ IBM话不多说，我们正式开始。1880 年美国">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Win,Mac,Unix,Linux">
+<meta property="og:url" content="https://www.shanghua.live/2021/07/22/%E8%AE%A1%E6%93%8D/Win,Mac,Unix,Linux/index.html">
+<meta property="og:site_name" content="殇花">
+<meta property="og:description" content="Win,Mac,Unix,Linux在我的印象中 Windows 才是最容易被攻击的操作系统，没想到 2020 年美国 NIST 的报告中， Debian 竟然是过去 20 年中漏洞最多的操作系统。Debain 以 3067 个漏洞稳居第一，第二名是 Android，第三名是 Linux Kernel。那么为什么 Debian 漏洞数会排在第一位呢？ IBM话不多说，我们正式开始。1880 年美国">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2021-07-22T10:24:55.000Z">
+<meta property="article:modified_time" content="2021-07-22T05:03:26.623Z">
+<meta property="article:author" content="殇 花">
+<meta property="article:tag" content="计操">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.shanghua.live/2021/07/22/%E8%AE%A1%E6%93%8D/Win,Mac,Unix,Linux/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="6PW-x4aRyYD-tihKNxcr_F1iIGlC1BHIifdmXsH1LGw"/><meta name="baidu-site-verification" content="code-2N59lZbwHm"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-2452196147037855',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2dd0339c07639d98a79b1c63cb6550c7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"11NR0ITYKM","apiKey":"f76bf5692d22d6db655bfca29b14b35e","indexName":"blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Win,Mac,Unix,Linux',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-22 05:03:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://q1.qlogo.cn/g?b=qq&amp;s=100&amp;nk=2621197736" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://shanghua-oss.oss-cn-beijing.aliyuncs.com/blog/photo-1606778303077-3780ea8d5420-min.jpeg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">殇花</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Win,Mac,Unix,Linux</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-22T10:24:55.000Z" title="发表于 2021-07-22 10:24:55">2021-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-22T05:03:26.623Z" title="更新于 2021-07-22 05:03:26">2021-07-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Win,Mac,Unix,Linux"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Win-Mac-Unix-Linux"><a href="#Win-Mac-Unix-Linux" class="headerlink" title="Win,Mac,Unix,Linux"></a>Win,Mac,Unix,Linux</h2><p>在我的印象中 Windows 才是最容易被攻击的操作系统，没想到 2020 年美国 NIST 的报告中， Debian 竟然是过去 20 年中漏洞最多的操作系统。Debain 以 3067 个漏洞稳居第一，第二名是 Android，第三名是 Linux Kernel。那么为什么 Debian 漏洞数会排在第一位呢？</p>
+<h2 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h2><p>话不多说，我们正式开始。1880 年美国进行了一次人口普查，涉及5000 多万人。因为缺少技术手段，总共用了 7 年半时间才完成。后来霍尔列斯发明了一种穿孔制表机，大大改善了这种情况，而后他还给这种机器申请了专利。</p>
+<p>1896 年，霍尔列斯成立了 CRT 公司，也就是 IBM 的前身。后来霍尔列斯经营不善，遇到困难，中间有金融家，军火商都参与过 CRT 的经营，却没能使得情况好转。</p>
+<p>直到 1914 年托马斯·约翰·沃森（老沃森）加盟CRT，帮助霍尔列斯管理 CRT，情况才逐渐好转。老沃森是一个销售出身，很懂得建立销售团队的文化，所以才能逐渐把 CRT 的业务做起来，成为 CRT 的实际掌控者。在 1924 年 CRT 正式更名为 IBM，开启了沃森的时代。</p>
+<p>IBM（International Business Machines Corporation）一开始是卖机器的。后来沃森的儿子，也就是小沃森后来逐渐接管了 IBM。小沃森对蓬勃发展的计算机产业非常感兴趣，同时也很看好计算机市场。但也正因如此，沃森父子间发生了一场冲突。老沃森的著名论断也是出自这场冲突：世界上对计算机有需求的人不会超过 5 个。于是我们都成了这幸运的 5 个人之一。</p>
+<p>所以 IBM 真正开始做计算机是 1949 年小沃森逐渐掌权后。1954 年，IBM 推出了世界上第一个拥有操作系统的商用计算机——IBM 704，并且在 1956 年时独占了计算机市场的 70% 的份额。</p>
+<p><strong>你可能会问，之前的计算机没有操作系统吗？</strong></p>
+<p>我以第一台可编程通用计算机 ENIAC 为例，ENIAC 虽然支持循环、分支判断语句，但是只支持写机器语言。ENIAC 的程序通常需要先写在纸上，然后再由专业的工程师输入到计算机中。 对于 ENIAC 来说执行的是一个个作业，就是每次把输入的程序执行完。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/ENIAC.png" alt="img"></p>
+<p>所以在 IBM 704 之前，除了实验室产品外，正式投入使用的计算机都是没有操作系统的。但当时 IBM 704 的操作系统是美国通用移动公司帮助研发的 GM-NAA I/O 系统，而非 IBM 自研。IBM 一直没有重视操作系统的研发能力，这也为后来 IBM 使用微软的操作系统，以及进军个人 电脑 市场的失败埋下了伏笔。</p>
+<h2 id="大型机操作系统"><a href="#大型机操作系统" class="headerlink" title="大型机操作系统"></a>大型机操作系统</h2><p>1975 年前，还没有个人电脑，主要是银行、政府、保险公司这些企业在购买计算机。因为比较强调数据吞吐量，也就是单位时间能够处理的业务数量，因此计算机也被称作大型机。</p>
+<p>早期的大型机厂商往往会为每个大型机写一个操作系统。后来 1964 年 IBM 自研了 OS/360 操作系统，在这个操作系统之上 IBM 推出了 System/360 大型机，然后在 1965~1978 年间，IBM 以 System/360 的代号陆陆续续推出了多款机器。开发 System/360 大型机的过程也被称为 IBM 的一次世纪豪赌，雇用了 6W 员工，新建了 5 个工厂。这么大力度的投资背后是小沃森的支持，几乎是把 IBM 的家底掏空转型去做计算机了。 IBM 这家公司喜欢押注，而且一次比一次大——2019 年 IBM 以 340 亿美金收购红帽，可能是 IBM 想在云计算和操作系统市场发力。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/360.png" alt="img"></p>
+<p>IBM 投入了大量人力物力在 System/360 上，也推进了 OS/360 的开发。当时 IBM 还自研了磁盘技术，IBM 自己叫作 DASD（Direct access storage devices）。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/dasd.png" alt="img"></p>
+<p>从上图中你可以看到，IBM 自研的磁盘，非常类似今天硬盘的结构的。当时支持磁盘的操作系统往往叫作 DOS（Disk Operating System）。还有一些是支持磁带的操作系统，叫作 TOS（Tape Operating System）。所以 OS/360 早期叫作 BOS/360，就是 Basic Operating System，后来分成了 DOS/360 和 TOS/360。现在我们不再根据硬件的不同来区分系统了，而是通过驱动程序驱动硬件工作，对硬件的支持更像是插件一样。</p>
+<p>为了支持大型机的工作，IBM 在1957 年还推出了 Fortran（Formula Translation）语言。这是一门非常适合数值计算的语言，目的是更好地支持业务逻辑处理。计算机、语言、操作系统，这应该是早期计算机的三要素。把这三个环节做好，就能占领市场。</p>
+<p>那个时代的操作系统是作业式的，相当于处理一个个任务，核心是一个任务的调度器。它会先一个任务处理，完成后再处理另一个任务，当时 IBM 还没有想过要开发分时操作系统，也就是多个任务轮流调度的模型。直到 Unix 系统的前身 Multics 出现，IBM 为了应对时代变化推出了 TSS/360（T 代表 Time Sharing）。</p>
+<p>和大型机相比，还有一个名词是超级计算机。超级计算机是指拥有其他计算机无法比拟的计算性能的计算机，目前超算每秒可以达到万亿次计算。通常处理业务，不需要超算。超算的作用还是处理科学问题。比如淘宝某次双 11 当天的订单数量是 10 亿量级，单从计算量上说，这并不是很大。如果单纯计算订单状态，恐怕一台手机足矣。但是双 11 期间最恐怖的是 I/O，加上解决大量事务带来的压力，还要同时保证一致性、可用性、分区容错性带来的系统性工作量。</p>
+<p>如果企业没有能力像阿里巴巴一样建立一个分布式集群，同时雇佣大量顶级程序员，就可以直接购买大型机，这样做是相对比较划算的。大型机的主要目标就是为了集中式处理 I/O 和作业提供响应巨大的吞吐量的能力。目前还没有几个企业拥有阿里巴巴处理交易的能力。因此 IBM 的大型机一直拥有非常大的市场。</p>
+<p>比如 IBM 的 z15 大型机，每天可以处理 1 万亿笔订单，内部可以部署 240 万个 Linux 容器。今天的银行交易、航班处理、政府的税务基本都还是大型机在管理。大型机价格也是相对较贵的，一台机器算上硬件、软件和维护费用，一年间花费上亿也是很正常的事情。</p>
+<h2 id="Unix"><a href="#Unix" class="headerlink" title="Unix"></a>Unix</h2><p>IBM 是一家商业驱动的公司，至今已经 100 多年历史。因为 IBM 喜欢用蓝色，大家经常戏称它是 Big Blue（蓝巨人）。IBM 的巨头们有魄力押注，看准了计算机时代的来临，雇用了 60000 员工，开了 5 个工厂，几乎把全部积累的财富都投入到了大型机市场，让 IBM 有了 90% 的大型机市场。商业驱动公司的弱点，就是对驱动技术发展缺少真正的热爱，更多还是商业利益的追逐。</p>
+<p>1964 年贝尔实验室、MIT 和通用电子公司合作开发了 Multics 操作系统，用在了 GE 645 大型机上。GE 开头就是 Generic Electric，通用电气公司，这家公司当时也有想过生产大型机。当时总共有 8 家公司生产大型机，因为做不过 IBM，被戏称为白雪公主和 7 个小矮人。Multics 提出了不少新的概念，比如：</p>
+<p>后来 IBM 逐渐对 Multics 引起了重视， 推出 TSS/360 系统，这只是做出防御性部署的一个举措。但是同在贝尔实验室 Multics 项目组的丹尼斯·里奇（C 语言的作者）和肯·汤普逊却看到了希望。他们都是 30 岁不到，正是意气风发的时候。两个人对程序设计、操作系统都有着浓厚的兴趣，特别是肯·汤普逊，之前已经做过大量的操作系统开发，还写过游戏，他们都觉得 Multics 设计太过于复杂了。再加上 Multics 没取得商业成功，贝尔实验室叫停了这个项目后，两个人就开始合作写 Unix。Unix 这个名字一方面参考 Multics，另一方面参考了 Uniplexed，它是 Multiplexed 的反义词，含义有点像统一和简化。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/unix.png" alt="img"></p>
+<p>Unix 早期开放了源代码，可以说是现代操作系统的奠基之作——支持多任务、多用户，还支持分级安全策略。拥有内核、内存管理、文件系统、正则表达式、开发工具、可执行文件格式、命令行工具等等。可以说，到今天 Unix 不再代表某种操作系统，而是一套统一的，大家都认可的架构标准。</p>
+<p>因为开源的原因，Unix 的版本非常复杂。具体你可以看下面这张大图。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/unixtree.png" alt="img"></p>
+<p>绿色的是开源版本，黄色的是混合版本，红色的是闭源版本。这里面有大型机使用的版本，有给工作站使用的版本，也有个人电脑版本。比如 Mac OS、SunOS、Solaris 都有用于个人电脑和工作站；HP-UX 还用作过大型机操作系统。另外，Linux 系统虽然不是 Unix，但是参考了 Unix 的设计，并且遵照 Unix 的规范，它从 Unix 中继承过去不少好用的工具，这种我们称为 Unix-like 操作系统。</p>
+<h2 id="个人电脑革命"><a href="#个人电脑革命" class="headerlink" title="个人电脑革命"></a>个人电脑革命</h2><p>从大型机兴起后，就陆续有人开始做个人电脑。但是第一台真正火了的个人电脑，是 1975 年 MITS 公司推出的 Altair 8800。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/mits.png" alt="img"></p>
+<p>里面有套餐可选，套餐价是 $439。MITS 的创始人 ED Roberts，和投资人承诺可以卖出去 800 台，没想到第一个月就卖出了 1000 台。对于一台没有显示器、没有键盘，硬件是组装的也不是自有品牌的电脑，它的购买者更多的是个人电脑爱好者们。用户可以通过上面的开关进行编程，然后执行简单的程序，通过观察信号灯看到输出。所以，市场对个人电脑的需求，是普遍存在的，哪怕是好奇心，大家也愿意为之买单。比尔·盖茨也买了这台机器，我们后面再说。</p>
+<p>Altair 8800 出品半年后，做个人电脑的公司就如雨后春笋一样出现了。IBM 当然也嗅到了商机。</p>
+<p>1976 年 21 岁的乔布斯在一次聚会中说服了 26 岁的沃兹尼亚克一起设计 Apple I 电脑。 沃兹尼亚克大二的时候，做过一台组装电脑，在这次聚会上，他的梦想被乔布斯点燃了，当晚就做了 Apple I 的设计图。1976 年 6 月份，Apple I 电脑就生产出了 200 台，最终卖出去 20 多台。 当时 Apple I 只提供一块板，不提供键盘、显示器等设备。这样的电脑竟然有销量，在今天仍然是不可想象的。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/apple.png" alt="img"></p>
+<p>Apple I 在商业上的发展不太成功，但是 1977 年，乔布斯又说服了投资人，投资生产 Apple II。结果当年就让乔布斯身价上百万，两年后就让他身价过亿。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/appletwo.png" alt="img"></p>
+<p>你可以看到 Apple II 就已经是一个完整的机器了。一开始 Apple II 是苹果自研的操作系统，并带有沃兹尼亚克写的简单的 BASIC 语言解释器。1978 年 Apple 公司花了 13000 美金采购了一家小公司的操作系统，这家小公司负责给苹果开发系统，也就是后来的 Apple DOS 操作系统。这家公司还为 Apple DOS 增加了文件浏览器。</p>
+<p>1980s 初， 蓝巨人 IBM 感受到了来自 Apple 的压力。如果个人市场完全被抢占，这对于一家专做商业系统的巨头影响会非常大。因此 IBM 成立了一个特别行动小组，代号 Project Chess，目标就是一年要做出一台能够上市的 PC。但是这次 IBM 没有豪赌，只是组织了一个 150 人的团队。因此，他们决定从硬件到软件都使用其他厂商的，当时的说法叫作开放平台。</p>
+<p>IBM 没有个人电脑上可用的操作系统，因此找到了当时一家做操作系统和个人电脑的厂商，Digital Research 公司。Digital Research 的 CP/M 操作系统已经受到了市场的认可，但是这家公司的创始人竟然拒绝了蓝巨人的提议，态度也不是很友好。这导致 Digital Research 直接错过了登顶的机会。蓝巨人无奈之下，就找到了只有 22 岁的比尔·盖茨。</p>
+<p>盖茨 22 岁的时候和好朋友艾伦创了微软公司。他其实也购买了 Altair 8800（就是本课时前面我们提到的第一台卖火的机器），但是他们目的是和 Altair 的制造商 MITS 公司搞好关系。最终盖茨成功说服了 MITS 公司雇佣艾伦，在 Altair 中提供 BASIC 解释器。BASIC 这门语言 1964 年就存在了，但是盖茨和艾伦是第一个把它迁移到 PC 领域的。IBM 看上了盖茨的团队，加上 Digital Research 拒绝了自己，有点生气，就找到了盖茨。</p>
+<p>盖茨非常重视这次机会。但是这里有个问题，微软当时手上是没有操作系统的，他们连夜搞定了一个方案，就是去购买另一家公司的 86-DOS 操作系统，然后承诺 IBM 自己团队负责修改和维护。微软花了 50000 美金买了 86-DOS 的使用权，允许修改和再发布。然后微软再将 86-DOS 授权给 IBM。这里面有非常多有趣的故事，如果你感兴趣可以去查资料了解更多的内容。</p>
+<p>最后，Project Chess 小组在 1 年内，成功完成了使命，做出了 IBM 个人电脑，看上去非常像 APPLE II。名字就叫 Personal Computer， 就是我们今天说的 PC。86-DOS 也改成了 PC DOS，IBM 的加入又给 PC 市场带了一波节奏，让更多的人了解到了个人电脑。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/personal.png" alt="img"></p>
+<p>微软也跟着水涨船高，每销售 1 台 PC，微软虽然拿不到利润，但保留了 PC DOS 的版权。而且拿到 IBM 的合同，为 IBM 开发核心系统，这也使得微软的地位大涨。盖茨相信马上就会有其他厂商开始和 IBM 竞争，会需要 PC DOS，而微软只需要专心做好操作系统就足够了。</p>
+<p>其实没有用多久， 1982 年康柏公司花了几个月时间，雇用了 100 多个工程师，逆向工程了 IBM PC，然后就推出了兼容 IBM PC 的电脑，价格稍微便宜一点。然后整个产业沸腾了，各种各样的商家都进来逆向 IBM PC。整个产业陷入了价格战，每过半年人们可以花更少的钱，拿到配置更高的机器。这个时候微软就在背后卖操作系统，也就是 PC DOS 的保真版，MS-DOS。直到 10 年后，微软正式和 IBM 决裂。</p>
+<p>微软第一个视窗操作系统是 1985 年，然后又被 IBM 要求开发它的竞品 OS/2。需要同时推进两个系统，所以微软不是很开心，但是又不能得罪蓝巨人。IBM 也不是很舒服，但是又不得不依赖微软。这个情况一直持续到 1995 年左右，Windows 95 发布的时候，微软还使用 MS-DOS 作为操作系统核心，到了 2001 年 Windows XP 发布的时候，就切换到了 Windows NT 内核。就这样，微软成功发展壮大，并逃离蓝巨人的掌控，成为世界上最大的操作系统公司。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><p>微软的崛起伴随着个人电脑的崛起。但是推动操作系统技术发展，还有另一条线，就是以开源力量为主导的 Unix 线。Unix 出现后，随着一些商业公司逐渐加入，部分公司开始不愿意再公开源代码，而是公开销售修改过的 Unix，这引起了很多黑客的不满。其中比较著名的有理查德·斯托曼和林纳斯。</p>
+<p>大黑客理查德·斯托曼有一次觉得打印机有一部分功能不方便，想要修改，却被施乐公司拒绝提供打印机驱动的源代码，导致了一些茅盾。再加上自己工作的 AI 实验室的成员被商业公司挖走了，他认为商业阻碍了技术进步。于是开始到处呼吁软件应该是自由的、开源的，人们应该拿到源代码进行修改和再发布。</p>
+<p>1985 年理查德·斯托曼发布了 GNU 项目，本身 GNU 是一个左递归，就是 GNU = GNU’s not Unix。GNU 整体来说还是基于 Unix 生态，但在斯托曼的领导下开发了大量的优质工具，比如 gcc 和 emacs 等。但是斯托曼一直为 GNU 没有自己的操作系统而苦恼。</p>
+<p>结果 1991 年 GNU 项目迎来了转机，年仅 21 岁的林纳斯·托瓦兹在网络上发布了一个开源的操作系统，就是 Linux。林纳斯的经历和斯托曼有点类似，所以林纳斯会议听斯托曼讲座，让他有种热血沸腾的感觉。林纳斯不满意 MS-DOS 不开源，但是作为学生党，刚刚学完了 Andy 的《操作系统：设计与实现》，本来一开始没有想过要写 Linux。最后是因为 Unix 的商用版本太贵了买不起，才开始写 Linux。</p>
+<p>斯托曼也觉得 GNU 不能没有操作系统，就统称为 GNU/Linux，并且利用自己的影响力帮助林纳斯推广 Linux。这样就慢慢吸引了世界上一批顶级的黑客，一起来写 Linux。后来 Linux 慢慢成长壮大，成为一块主流的服务器操作系统。当然 Linux 后来也衍生了大量的版本，下图是不同版本的 Linux 的分布。</p>
+<p><img src="/img/%E8%AE%A1%E6%93%8D/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%88%AB/linux.png" alt="img"></p>
+<p>数据取自 W3Techs.com 2020</p>
+<p>Ubuntu 源自 Debian，有着非常漂亮的桌面体验，我就是使用 Ubuntu 开发程序。 Ubuntu 后面有商业公司 Canonical 的支持，也有社区的支持。Centos 源自 Red Hat 公司的企业版 Linux（RHEL），商用版本的各种硬件、软件支持通常会好一些，因此目前国内互联网企业的运维都偏向使用 CentosOS。第三名的 Debian 是 Ubuntu 的源头，是一个完全由自由软件精神驱动的社区产品，提供了大量的自由软件。当然也有人批评 Debian 太过于松散，发行周期太长，漏洞修复周期长等等。</p>
+<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>乔布斯的苹果电脑最终没有卖过微软的操作系统。但是苹果手机就独占了世界上 2/3 的手机利润。苹果手机取得成功后，各大厂商都开始做智能手机。然后 Google 收购了 Android 公司，复刻了微软成功道路。Android 是基于 Linux 改造的。Android 之所以能成功有这么几个原因：</p>
+<ul>
+<li>Android 是免费的，因此手机厂商不需要为使用 Android 支付额外的费用，而 Google 可以利用 Google 的移动服务变现，据统计 Google Play 应用商店 + Google 搜索服务 + Google 地图三项一年的营收就可以到 188 亿美金；</li>
+<li>Android 是开源生态，各大厂商可以基于 Android 修改；</li>
+<li>Android 系统基于 Linux 稳定性很好，崩溃率很低；</li>
+<li>最后就是应用生态，用 Android 技术开发 App 可以在各大手机品牌通用。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">殇 花</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.shanghua.live/2021/07/22/%E8%AE%A1%E6%93%8D/Win,Mac,Unix,Linux/">https://www.shanghua.live/2021/07/22/计操/Win,Mac,Unix,Linux/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.shanghua.live" target="_blank">殇花</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E6%93%8D/">计操</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">进程和线程</div></div></a></div><div class="next-post pull-right"><a href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E4%B9%90%E8%A7%82%E9%94%81-%E5%8C%BA%E5%9D%97%E9%93%BE/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">乐观锁-区块链</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/07/15/计操/程序的执行下/" title="程序的执行（下）"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-14</div><div class="title">程序的执行（下）</div></div></a></div><div><a href="/2021/07/15/计操/目录结构和文件管理指令/" title="目录结构和文件管理指令"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-15</div><div class="title">目录结构和文件管理指令</div></div></a></div><div><a href="/2021/07/15/计操/存储器分级/" title="存储器分级"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-15</div><div class="title">存储器分级</div></div></a></div><div><a href="/2021/07/18/计操/Linux权限划分/" title="Linux 权限划分"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-17</div><div class="title">Linux 权限划分</div></div></a></div><div><a href="/2021/07/18/计操/Linux网络指令/" title="Linux 网络指令"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-17</div><div class="title">Linux 网络指令</div></div></a></div><div><a href="/2021/07/17/计操/管道指令/" title="管道指令"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-17</div><div class="title">管道指令</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://q1.qlogo.cn/g?b=qq&amp;s=100&amp;nk=2621197736" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">殇 花</div><div class="author-info__description">殇花的博客</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">71</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/shanghua521"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/shanghua521" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:shanghua714@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">殇花的小博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Win-Mac-Unix-Linux"><span class="toc-number">1.</span> <span class="toc-text">Win,Mac,Unix,Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IBM"><span class="toc-number">2.</span> <span class="toc-text">IBM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%9E%8B%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">大型机操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unix"><span class="toc-number">4.</span> <span class="toc-text">Unix</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E7%94%B5%E8%84%91%E9%9D%A9%E5%91%BD"><span class="toc-number">5.</span> <span class="toc-text">个人电脑革命</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">6.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android"><span class="toc-number">7.</span> <span class="toc-text">Android</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" title="进程和线程"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="进程和线程"/></a><div class="content"><a class="title" href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" title="进程和线程">进程和线程</a><time datetime="2021-07-22T12:23:13.000Z" title="发表于 2021-07-22 12:23:13">2021-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/22/%E8%AE%A1%E6%93%8D/Win,Mac,Unix,Linux/" title="Win,Mac,Unix,Linux"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Win,Mac,Unix,Linux"/></a><div class="content"><a class="title" href="/2021/07/22/%E8%AE%A1%E6%93%8D/Win,Mac,Unix,Linux/" title="Win,Mac,Unix,Linux">Win,Mac,Unix,Linux</a><time datetime="2021-07-22T10:24:55.000Z" title="发表于 2021-07-22 10:24:55">2021-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E4%B9%90%E8%A7%82%E9%94%81-%E5%8C%BA%E5%9D%97%E9%93%BE/" title="乐观锁-区块链"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="乐观锁-区块链"/></a><div class="content"><a class="title" href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E4%B9%90%E8%A7%82%E9%94%81-%E5%8C%BA%E5%9D%97%E9%93%BE/" title="乐观锁-区块链">乐观锁-区块链</a><time datetime="2021-07-22T10:24:55.000Z" title="发表于 2021-07-22 10:24:55">2021-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E9%94%81-%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="锁、信号量和分布式锁"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="锁、信号量和分布式锁"/></a><div class="content"><a class="title" href="/2021/07/22/%E8%AE%A1%E6%93%8D/%E9%94%81-%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" title="锁、信号量和分布式锁">锁、信号量和分布式锁</a><time datetime="2021-07-22T10:24:55.000Z" title="发表于 2021-07-22 10:24:55">2021-07-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/07/20/%E8%AE%A1%E6%93%8D/%E4%B8%AD%E6%96%AD%E5%92%8C%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F/" title="中断和中断向量"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中断和中断向量"/></a><div class="content"><a class="title" href="/2021/07/20/%E8%AE%A1%E6%93%8D/%E4%B8%AD%E6%96%AD%E5%92%8C%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F/" title="中断和中断向量">中断和中断向量</a><time datetime="2021-07-19T16:31:52.000Z" title="发表于 2021-07-19 16:31:52">2021-07-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2018 - 2021 By 殇 花</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      true && mermaid.init()
+    })
+  }
+}</script></div><script src="/js/demo.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
